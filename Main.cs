@@ -119,16 +119,22 @@ namespace CardGame
             dealerHand.DisplayHand();
             Console.WriteLine($"Total value: {dealerHand.CalculateHandValue()}");
 
+            // DEBUG PARTITION
+            Console.WriteLine("Dealerhand Value: " + dealerHand.CalculateHandValue() + "\nPlayerhand Value: " + playerHand.CalculateHandValue());
+
             if(dealerHand.CalculateHandValue() > playerHand.CalculateHandValue() && dealerHand.CalculateHandValue() <= 21)
             {
                 Console.WriteLine("THE DEALER WINS!");
             }else if(playerHand.CalculateHandValue() > dealerHand.CalculateHandValue() && playerHand.CalculateHandValue() <= 21)
             {
                 Console.WriteLine("THE PLAYER WON");
+            }else if(playerHand.CalculateHandValue() <= 21 && dealerHand.CalculateHandValue() > 21)
+            {
+                Console.WriteLine("THE PLAYER WON");
             }
             else
             {
-                Console.WriteLine("YOU ARE BOTH LOSERS XD");
+                Console.WriteLine("You both lost.");
             }
         }
     }
